@@ -2,8 +2,8 @@ import { Controller } from "@nestjs/common";
 import { EventPattern } from "@nestjs/microservices";
 import { TransformMessagePayload } from "src/common/decorators/payload.decorator";
 
-import {ActionLog } from '@prisma/client'
 import { ActionsLogService } from "./actionsLog.service";
+import { CreateActionLogDTO } from "./dto";
 
 
 @Controller({})
@@ -14,7 +14,7 @@ export class ActionsLogRMQController {
     ){}
 
     @EventPattern('action.users')
-    async registerAction(@TransformMessagePayload() content : Partial<ActionLog>){
+    async registerAction(@TransformMessagePayload() content : CreateActionLogDTO){
         return await this.actionsLogService.registerAction(content)
     }
 }

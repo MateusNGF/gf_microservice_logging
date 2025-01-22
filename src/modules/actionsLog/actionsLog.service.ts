@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { ActionLog } from "@prisma/client";
 import { PrismaService } from "src/common/services/prisma.service";
+import { CreateActionLogDTO } from "./dto";
 
 
 @Injectable()
@@ -10,7 +10,7 @@ export class ActionsLogService {
         private readonly prismaService : PrismaService
     ){}
 
-    registerAction(content : Partial<ActionLog>){
+    registerAction(content : CreateActionLogDTO){
         return this.prismaService.actionLog.create({
             data: content as any
         })
