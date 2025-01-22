@@ -19,9 +19,9 @@ async function bootstrap() {
     transport: Transport.RMQ,
     options: {
       urls: [`${configService.get('rmq.uri')}`],
-      queue: `${configService.get('rmq.queue.auth')}`,
-      queueOptions: { durable: false },
-      prefetchCount: 1,
+      queue: `${configService.get('rmq.queue.logging')}`,
+      queueOptions: { durable: true },
+      prefetchCount: 4,
       socketOptions: {
         clientProperties: {
           connection_name: 'logging_microservice',
@@ -32,7 +32,7 @@ async function bootstrap() {
 
   app.startAllMicroservices();
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.HTTP_PORT ?? 3000);
 }
 
 

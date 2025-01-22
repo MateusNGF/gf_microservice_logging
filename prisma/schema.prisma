@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model ActionLog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  action    String   
+  userId    String   @map("user_id")
+  module    String
+  service   String
+  timestamp DateTime 
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("action_logs")
+}
