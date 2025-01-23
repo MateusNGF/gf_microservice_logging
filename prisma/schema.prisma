@@ -12,7 +12,7 @@ model ActionLog {
   action    String   
   userId    String   @map("user_id")
   module    String
-  service   String
+  payload   Json 
   timestamp DateTime 
   createdAt DateTime @default(now()) @map("created_at")
 

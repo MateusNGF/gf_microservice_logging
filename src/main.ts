@@ -3,7 +3,7 @@ import { AppModule } from './app/app.module';
 import { setupProfiling } from './profiling';
 import { Transport } from '@nestjs/microservices';
 import { AmqpConnectionManagerSocketOptions } from '@nestjs/microservices/external/rmq-url.interface';
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
@@ -14,6 +14,11 @@ async function bootstrap() {
   const logger = new Logger("Bootstrap");
 
   const configService = app.get(ConfigService);
+
+
+  app.useGlobalPipes(new ValidationPipe({
+    transform: true
+  }))
 
   app.connectMicroservice({
     transport: Transport.RMQ,
