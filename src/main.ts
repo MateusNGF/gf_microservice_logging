@@ -15,7 +15,8 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService);
 
-
+  process.title = await configService.get('app.name') as string;
+  
   app.useGlobalPipes(new ValidationPipe({
     transform: true
   }))
