@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { CommonModule } from "src/common/common.module";
-import { ActionsLogService } from "./actionsLog.service";
-import { ActionsLogRMQController } from "./actionsLog.rmq.controller";
+import { ActionsLogService } from "./actions-log.service";
+import { ActionsLogRMQController } from "./actions-log.rmq.controller";
 
 @Module({
     imports: [

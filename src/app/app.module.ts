@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ActionsLogModule } from 'src/modules/actionsLog/actionsLog.module';
+import { ActionsLogModule } from 'src/modules/actions-log/actions-log.module';
 
 @Module({
   imports: [

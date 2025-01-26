@@ -2,7 +2,7 @@ import { Controller } from "@nestjs/common";
 import { EventPattern } from "@nestjs/microservices";
 import { TransformMessagePayload } from "src/common/decorators/payload.decorator";
 
-import { ActionsLogService } from "./actionsLog.service";
+import { ActionsLogService } from "./actions-log.service";
 import { CreateActionLogDTO } from "./dto";
 
 
