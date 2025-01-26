@@ -8,13 +8,13 @@ datasource db {
 }
 
 model ActionLog {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  action    String   
-  userId    String   @map("user_id")
-  module    String
-  payload   Json 
-  timestamp DateTime 
-  createdAt DateTime @default(now()) @map("created_at")
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  action     String
+  employeeId Int      @map("employee_id")
+  module     String
+  payload    Json
+  timestamp  DateTime
+  createdAt  DateTime @default(now()) @map("created_at")
 
   @@map("action_logs")
 }
