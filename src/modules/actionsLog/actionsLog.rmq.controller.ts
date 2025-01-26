@@ -13,7 +13,7 @@ export class ActionsLogRMQController {
         private readonly actionsLogService : ActionsLogService
     ){}
 
-    @EventPattern('action.users')
+    @EventPattern('action.employee')
     async registerAction(@TransformMessagePayload() content : CreateActionLogDTO){
         return await this.actionsLogService.registerAction(content)
     }
